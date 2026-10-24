@@ -1,0 +1,423 @@
+<title>FinInsight Dashboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: sticky header + slicer bar, four tabbed pages of KPI tiles and chart cards on a 12-col grid. */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --ink:#14202E; --muted:#5B6B7D; --line:#DCE2EA;
+  --accent:#1F5FA6; --accent-soft:#E3EEFA; --accent-ink:#FFFFFF;
+  --good:#1B8A5A; --bad:#C23B32; --warn:#B7791F;
+  --s1:#1F5FA6; --s2:#178F86; --s3:#C98A12; --s4:#7455C4; --s5:#D2593F; --s6:#7F8C9B;
+  --font:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1620; --surface:#16212E; --ink:#E6ECF3; --muted:#98A6B7; --line:#263444;
+  --accent:#5AA2F0; --accent-soft:#1B2D44; --accent-ink:#0E1620;
+  --good:#3DBE86; --bad:#F0766C; --warn:#E3A93A;
+  --s1:#5AA2F0; --s2:#3CC2B6; --s3:#E3A93A; --s4:#A18AF0; --s5:#F08466; --s6:#9AA7B5; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1620; --surface:#16212E; --ink:#E6ECF3; --muted:#98A6B7; --line:#263444;
+  --accent:#5AA2F0; --accent-soft:#1B2D44; --accent-ink:#0E1620;
+  --good:#3DBE86; --bad:#F0766C; --warn:#E3A93A;
+  --s1:#5AA2F0; --s2:#3CC2B6; --s3:#E3A93A; --s4:#A18AF0; --s5:#F08466; --s6:#9AA7B5; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 32px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+.wrap{max-width:1280px;margin:0 auto}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);
+  margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:12px max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));
+  border-bottom:1px solid var(--line)}
+.top-in{max-width:1280px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between}
+.brand h1{font-size:18px;font-weight:700;letter-spacing:-.01em;margin:0}
+.brand h1 span{color:var(--accent)}
+.demo{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--warn);
+  border:1px solid var(--warn);border-radius:4px;padding:2px 8px}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;margin-top:10px;scrollbar-width:thin}
+nav.tabs button{font:inherit;font-weight:500;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);
+  padding:8px 14px;cursor:pointer;white-space:nowrap}
+nav.tabs button:hover{color:var(--ink)}
+nav.tabs button[aria-selected="true"]{color:var(--accent);border-color:var(--accent);font-weight:600}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.slicers{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:16px 0}
+.sl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-width:0}
+.sl>label{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);width:72px;flex:none}
+.chip{font:inherit;font-size:12.5px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:3px 11px;cursor:pointer}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.clear{margin-left:auto;font:inherit;font-size:12.5px;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline}
+.clear[hidden]{display:none}
+
+.page{display:none}.page.on{display:block}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.c12{grid-column:span 12}.c8{grid-column:span 8}.c7{grid-column:span 7}.c6{grid-column:span 6}.c5{grid-column:span 5}.c4{grid-column:span 4}
+@media (max-width:900px){.c8,.c7,.c6,.c5,.c4{grid-column:span 12}}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-bottom:16px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;min-width:0}
+.kpi .l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font-size:28px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:4px}
+.kpi .d{font-size:12.5px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
+.up{color:var(--bad)}.down{color:var(--good)}.flat{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;min-width:0}
+.card h2{font-size:14px;font-weight:600;margin:0 0 2px}
+.card .sub{font-size:12.5px;color:var(--muted);margin:0 0 10px}
+.cv{position:relative;height:280px}
+.cv.tall{height:340px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap}
+td.n,th.n{text-align:right}
+tbody tr.pick{cursor:pointer}
+tbody tr.pick:hover{background:var(--accent-soft)}
+tbody tr.sel{background:var(--accent-soft);font-weight:600}
+.scroll{overflow-x:auto}
+.pill{display:inline-block;font-size:11.5px;font-weight:600;border-radius:999px;padding:1px 9px;border:1px solid currentColor}
+.pill.positive{color:var(--good)}.pill.negative{color:var(--bad)}.pill.neutral{color:var(--muted)}.pill.review{color:var(--warn)}
+.bar{display:inline-block;height:6px;border-radius:3px;background:var(--accent);vertical-align:middle;margin-right:6px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input[type=search]{font:inherit;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:6px 10px;min-width:0;flex:1 1 220px}
+.cm{display:grid;grid-template-columns:auto repeat(3,1fr);gap:4px;font-variant-numeric:tabular-nums;max-width:460px}
+.cm div{padding:12px 6px;text-align:center;border-radius:4px;min-width:0}
+.cm .h{font-family:var(--mono);font-size:11px;color:var(--muted);padding:6px;background:none}
+.cm .cell b{font-size:18px;display:block}
+.cm .cell span{font-size:11.5px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+.feat h3{font-size:12px;margin:0 0 6px;text-transform:capitalize}
+.feat ol{margin:0;padding-left:18px;font-family:var(--mono);font-size:12px;line-height:1.7}
+.note{font-size:12.5px;color:var(--muted);margin-top:16px}
+.empty{color:var(--muted);padding:24px 0;text-align:center}
+</style>
+
+<div class="wrap">
+<header class="top"><div class="top-in">
+  <div class="brand">
+    <h1>Fin<span>Insight</span></h1>
+    <span class="demo" id="demo" hidden>Synthetic demo data</span>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Report pages">
+    <button role="tab" data-page="overview" aria-selected="true">Executive overview</button>
+    <button role="tab" data-page="complaints" aria-selected="false">Complaint deep dive</button>
+    <button role="tab" data-page="sentiment" aria-selected="false">Text sentiment</button>
+    <button role="tab" data-page="model" aria-selected="false">Model quality</button>
+  </nav>
+</div></header>
+
+<main style="padding-top:16px">
+  <section class="slicers" id="slicers" aria-label="Filters">
+    <div class="sl"><label>Year</label><span id="sl-year" class="sl" style="gap:6px"></span>
+      <button class="clear" id="clear" hidden>Clear filters</button></div>
+    <div class="sl"><label>Product</label><span id="sl-product" class="sl" style="gap:6px"></span></div>
+    <div class="sl"><label>Company</label><span id="sl-company" class="sl" style="gap:6px"></span></div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="page on" id="p-overview">
+    <div class="kpis" id="kpis"></div>
+    <div class="grid">
+      <div class="card c8"><h2>Complaints per month</h2><p class="sub">Bars: monthly count. Line: 3-month average.</p><div class="cv"><canvas id="ch-month" role="img" aria-label="Monthly complaints with 3-month average"></canvas></div></div>
+      <div class="card c4"><h2>Product mix</h2><p class="sub">Select a bar to filter the whole report.</p><div class="cv"><canvas id="ch-product" role="img" aria-label="Complaints by product"></canvas></div></div>
+      <div class="card c12"><h2>Top complaint issues</h2><p class="sub">Top 10 by volume. Select a bar to filter by issue.</p><div class="cv tall"><canvas id="ch-issues" role="img" aria-label="Top complaint issues"></canvas></div></div>
+    </div>
+  </section>
+
+  <!-- COMPLAINTS -->
+  <section class="page" id="p-complaints">
+    <div class="grid">
+      <div class="card c12"><h2>Monthly volume by product</h2><p class="sub">Stacked, so each product's contribution to the trend is visible.</p><div class="cv tall"><canvas id="ch-mbp" role="img" aria-label="Monthly complaints stacked by product"></canvas></div></div>
+      <div class="card c6"><h2>Company response mix</h2><p class="sub">Share of each company's complaints by response type.</p><div class="cv tall"><canvas id="ch-resp" role="img" aria-label="Response mix by company"></canvas></div></div>
+      <div class="card c6"><h2>Relief rate by product</h2><p class="sub">Share closed with monetary or non-monetary relief.</p><div class="cv tall"><canvas id="ch-relief" role="img" aria-label="Relief rate by product"></canvas></div></div>
+      <div class="card c12"><h2>Company scorecard</h2><p class="sub">Select a row to filter by company.</p><div class="scroll"><table id="score"></table></div></div>
+    </div>
+  </section>
+
+  <!-- SENTIMENT -->
+  <section class="page" id="p-sentiment">
+    <div class="kpis" id="s-kpis"></div>
+    <div class="grid">
+      <div class="card c5"><h2>Predicted sentiment</h2><p class="sub">Count of scored texts per class.</p><div class="cv"><canvas id="ch-sent" role="img" aria-label="Predicted sentiment counts"></canvas></div></div>
+      <div class="card c7"><h2>Model confidence</h2><p class="sub">Confidence ranks texts for review. It is not a calibrated probability.</p><div class="cv"><canvas id="ch-conf" role="img" aria-label="Confidence histogram"></canvas></div></div>
+      <div class="card c12">
+        <h2>Scored texts</h2>
+        <div class="tools">
+          <input type="search" id="q" placeholder="Search text" aria-label="Search text">
+          <span id="s-chips" class="sl" style="gap:6px"></span>
+          <button class="chip" id="s-review" aria-pressed="false">Needs review only</button>
+        </div>
+        <div class="scroll"><table id="s-table"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODEL -->
+  <section class="page" id="p-model">
+    <div class="kpis" id="m-kpis"></div>
+    <div class="grid">
+      <div class="card c6"><h2>Model comparison</h2><p class="sub">Cross-validated macro F1 on the training split (mean, error bar is one standard deviation).</p><div class="cv"><canvas id="ch-cmp" role="img" aria-label="Model comparison by macro F1"></canvas></div></div>
+      <div class="card c6"><h2>Confusion matrix</h2><p class="sub">Held-out test set. Rows are actual, columns are predicted.</p><div id="cm"></div></div>
+      <div class="card c6"><h2>Per-class results</h2><div class="scroll"><table id="m-class"></table></div></div>
+      <div class="card c6"><h2>Strongest n-grams per class</h2><div class="feat" id="feat"></div></div>
+      <div class="card c12"><h2>Misclassified test examples</h2><p class="sub">Most confident mistakes first. Read these to write your error analysis.</p><div class="scroll"><table id="m-miss"></table></div></div>
+    </div>
+  </section>
+  <p class="note" id="foot"></p>
+</main>
+</div>
+
+<script type="application/json" id="data">/*__DATA__*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = (s, r = document) => r.querySelector(s);
+const fmt = n => Number(n).toLocaleString('en-US');
+const pct = (v, d = 1) => (v * 100).toFixed(d) + '%';
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const mlabel = m => MON[+m.slice(5, 7) - 1] + ' ' + m.slice(2, 4);
+
+const S = { page: 'overview', year: 'All', product: new Set(), company: new Set(), issue: null,
+            q: '', sent: new Set(), review: false };
+const charts = {};
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const series = () => ['--s1','--s2','--s3','--s4','--s5','--s6'].map(css);
+
+function rows() {
+  return D.rows.filter(r =>
+    (S.year === 'All' || r.m.startsWith(S.year)) &&
+    (!S.product.size || S.product.has(r.p)) &&
+    (!S.company.size || S.company.has(r.c)) &&
+    (!S.issue || r.i === S.issue));
+}
+function group(rs, key) {
+  const g = new Map();
+  for (const r of rs) {
+    const k = key(r);
+    const o = g.get(k) || { n: 0, rel: 0, t: 0 };
+    o.n += r.n; o.rel += r.rel; o.t += r.t;
+    g.set(k, o);
+  }
+  return g;
+}
+const sortedBy = (g, f = ([, v]) => -v.n) => [...g.entries()].sort((a, b) => f(a) - f(b));
+const toggle = (set, v) => set.has(v) ? set.delete(v) : set.add(v);
+
+/* ---------- chart plumbing ---------- */
+function mk(id, cfg) {
+  if (charts[id]) charts[id].destroy();
+  const ink = css('--muted'), line = css('--line');
+  Chart.defaults.font.family = css('--font');
+  Chart.defaults.font.size = 12;
+  Chart.defaults.color = ink;
+  cfg.options = Object.assign({ responsive: true, maintainAspectRatio: false, animation: false }, cfg.options || {});
+  const sc = cfg.options.scales || {};
+  for (const k of Object.keys(sc)) { sc[k].grid = Object.assign({ color: line, drawTicks: false }, sc[k].grid || {}); sc[k].border = { display: false }; }
+  charts[id] = new Chart(document.getElementById(id), cfg);
+  return charts[id];
+}
+const legendOff = { legend: { display: false } };
+function dim(colors, labels, selected) {
+  return labels.map((l, i) => !selected.size || selected.has(l) ? colors[i % colors.length] : colors[i % colors.length] + '55');
+}
+
+/* ---------- slicers ---------- */
+function chips(host, values, isOn, onClick) {
+  host.innerHTML = '';
+  for (const v of values) {
+    const b = document.createElement('button');
+    b.className = 'chip'; b.textContent = v; b.setAttribute('aria-pressed', isOn(v));
+    b.onclick = () => { onClick(v); render(); };
+    host.appendChild(b);
+  }
+}
+function renderSlicers() {
+  $('#slicers').hidden = !(S.page === 'overview' || S.page === 'complaints');
+  chips($('#sl-year'), ['All', ...D.years], v => S.year === v, v => S.year = v);
+  chips($('#sl-product'), D.products, v => S.product.has(v), v => toggle(S.product, v));
+  chips($('#sl-company'), D.companies, v => S.company.has(v), v => toggle(S.company, v));
+  $('#clear').hidden = !(S.year !== 'All' || S.product.size || S.company.size || S.issue);
+  if (S.issue) {
+    const b = document.createElement('button');
+    b.className = 'chip'; b.setAttribute('aria-pressed', 'true'); b.textContent = 'Issue: ' + S.issue + ' ×';
+    b.onclick = () => { S.issue = null; render(); };
+    $('#sl-year').appendChild(b);
+  }
+}
+$('#clear').onclick = () => { S.year = 'All'; S.product.clear(); S.company.clear(); S.issue = null; render(); };
+
+/* ---------- overview ---------- */
+function kpi(l, v, d, cls = '') { return `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d ${cls}">${d || '&nbsp;'}</div></div>`; }
+
+function renderOverview(rs) {
+  const total = rs.reduce((a, r) => a + r.n, 0);
+  const rel = rs.reduce((a, r) => a + r.rel, 0), tim = rs.reduce((a, r) => a + r.t, 0);
+  const byM = sortedBy(group(rs, r => r.m), ([k]) => k);
+  const last = byM.at(-1), prev = byM.at(-2);
+  let mom = '', cls = 'flat';
+  if (last && prev && prev[1].n) {
+    const c = (last[1].n - prev[1].n) / prev[1].n;
+    mom = (c >= 0 ? '+' : '') + (c * 100).toFixed(1) + '% vs ' + mlabel(prev[0]);
+    cls = c > 0.005 ? 'up' : c < -0.005 ? 'down' : 'flat';
+  }
+  const prods = sortedBy(group(rs, r => r.p));
+  $('#kpis').innerHTML =
+    kpi('Total complaints', fmt(total), D.meta.date_min + ' to ' + D.meta.date_max) +
+    kpi('Latest month', last ? fmt(last[1].n) : '0', mom || (last ? mlabel(last[0]) : ''), cls) +
+    kpi('Relief rate', total ? pct(rel / total) : '-', 'closed with relief') +
+    (D.has_timely ? kpi('Timely response', total ? pct(tim / total) : '-', 'responded on time') : '') +
+    kpi('Top product', prods[0] ? esc(prods[0][0]) : '-', prods[0] && total ? pct(prods[0][1].n / total) + ' of complaints' : '');
+
+  const labels = byM.map(([k]) => mlabel(k)), counts = byM.map(([, v]) => v.n);
+  const avg = counts.map((_, i) => i < 2 ? null : (counts[i] + counts[i - 1] + counts[i - 2]) / 3);
+  mk('ch-month', { data: { labels, datasets: [
+      { type: 'bar', label: 'Complaints', data: counts, backgroundColor: css('--s6') + '99', borderRadius: 2, order: 2 },
+      { type: 'line', label: '3-month average', data: avg, borderColor: css('--s1'), backgroundColor: css('--s1'), borderWidth: 2.5, pointRadius: 0, tension: .3, order: 1 }] },
+    options: { plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true } } },
+      scales: { x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } }, y: { beginAtZero: true } } } });
+
+  const pl = prods.map(([k]) => k), pc = series();
+  mk('ch-product', { type: 'bar', data: { labels: pl, datasets: [{ data: prods.map(([, v]) => v.n), backgroundColor: dim(pc, pl, S.product), borderRadius: 3 }] },
+    options: { indexAxis: 'y', plugins: legendOff, scales: { x: { beginAtZero: true }, y: { grid: { display: false } } },
+      onClick: (e, els, ch) => { if (els.length) { toggle(S.product, ch.data.labels[els[0].index]); render(); } } } });
+
+  const iss = sortedBy(group(rs, r => r.i)).slice(0, 10), il = iss.map(([k]) => k);
+  mk('ch-issues', { type: 'bar', data: { labels: il, datasets: [{ data: iss.map(([, v]) => v.n),
+      backgroundColor: il.map(k => !S.issue || S.issue === k ? css('--s1') : css('--s1') + '55'), borderRadius: 3 }] },
+    options: { indexAxis: 'y', plugins: legendOff, scales: { x: { beginAtZero: true }, y: { grid: { display: false } } },
+      onClick: (e, els, ch) => { if (els.length) { const k = ch.data.labels[els[0].index]; S.issue = S.issue === k ? null : k; render(); } } } });
+}
+
+/* ---------- complaint deep dive ---------- */
+function renderComplaints(rs) {
+  const months = [...new Set(rs.map(r => r.m))].sort();
+  const prods = sortedBy(group(rs, r => r.p)).map(([k]) => k), col = series();
+  const gm = group(rs, r => r.p + '|' + r.m);
+  mk('ch-mbp', { type: 'bar', data: { labels: months.map(mlabel), datasets: prods.map((p, i) => ({
+      label: p, backgroundColor: col[i % col.length], stack: 's',
+      data: months.map(m => gm.get(p + '|' + m)?.n || 0) })) },
+    options: { plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true } } },
+      scales: { x: { stacked: true, grid: { display: false }, ticks: { maxTicksLimit: 12 } }, y: { stacked: true, beginAtZero: true } } } });
+
+  const comps = sortedBy(group(rs, r => r.c)).map(([k]) => k);
+  const resps = sortedBy(group(rs, r => r.r)).map(([k]) => k);
+  const gr = group(rs, r => r.c + '|' + r.r), tc = group(rs, r => r.c);
+  mk('ch-resp', { type: 'bar', data: { labels: comps, datasets: resps.map((r, i) => ({
+      label: r, backgroundColor: col[i % col.length], stack: 's',
+      data: comps.map(c => (gr.get(c + '|' + r)?.n || 0) / (tc.get(c)?.n || 1) * 100) })) },
+    options: { indexAxis: 'y', plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, usePointStyle: true } },
+        tooltip: { callbacks: { label: c => c.dataset.label + ': ' + c.parsed.x.toFixed(1) + '%' } } },
+      scales: { x: { stacked: true, max: 100, ticks: { callback: v => v + '%' } }, y: { stacked: true, grid: { display: false } } } } });
+
+  const pg = group(rs, r => r.p), pr = sortedBy(pg, ([, v]) => -(v.rel / v.n));
+  mk('ch-relief', { type: 'bar', data: { labels: pr.map(([k]) => k), datasets: [{ data: pr.map(([, v]) => v.rel / v.n * 100), backgroundColor: css('--s2'), borderRadius: 3 }] },
+    options: { indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.parsed.x.toFixed(1) + '%' } } },
+      scales: { x: { beginAtZero: true, ticks: { callback: v => v + '%' } }, y: { grid: { display: false } } } } });
+
+  const cg = sortedBy(group(rs, r => r.c));
+  $('#score').innerHTML = `<thead><tr><th>Company</th><th class="n">Complaints</th><th class="n">Relief rate</th>${D.has_timely ? '<th class="n">Timely response</th>' : ''}</tr></thead><tbody>` +
+    cg.map(([k, v]) => `<tr class="pick ${S.company.has(k) ? 'sel' : ''}" data-c="${esc(k)}"><td>${esc(k)}</td><td class="n">${fmt(v.n)}</td><td class="n">${pct(v.rel / v.n)}</td>${D.has_timely ? `<td class="n">${pct(v.t / v.n)}</td>` : ''}</tr>`).join('') + '</tbody>';
+  $('#score').querySelectorAll('tr.pick').forEach(tr => tr.onclick = () => { toggle(S.company, tr.dataset.c); render(); });
+}
+
+/* ---------- sentiment ---------- */
+function renderSentiment() {
+  const all = D.sentiment, labels = ['negative', 'neutral', 'positive'];
+  const list = all.filter(r => (!S.sent.size || S.sent.has(r.predicted_sentiment)) && (!S.review || r.needs_review) &&
+    (!S.q || String(r.text).toLowerCase().includes(S.q.toLowerCase())));
+  const avg = list.length ? list.reduce((a, r) => a + r.confidence, 0) / list.length : 0;
+  const neg = list.filter(r => r.predicted_sentiment === 'negative').length;
+  $('#s-kpis').innerHTML = kpi('Texts shown', fmt(list.length), 'of ' + fmt(all.length) + ' scored') +
+    kpi('Negative share', list.length ? pct(neg / list.length) : '-', fmt(neg) + ' texts') +
+    kpi('Average confidence', list.length ? avg.toFixed(2) : '-', 'not a calibrated probability') +
+    kpi('Needs review', fmt(list.filter(r => r.needs_review).length), 'below ' + D.meta.review_threshold + ' confidence');
+  chips($('#s-chips'), labels, v => S.sent.has(v), v => toggle(S.sent, v));
+  $('#s-review').setAttribute('aria-pressed', S.review);
+
+  const colors = { negative: css('--bad'), neutral: css('--s6'), positive: css('--good') };
+  mk('ch-sent', { type: 'bar', data: { labels, datasets: [{ data: labels.map(l => list.filter(r => r.predicted_sentiment === l).length),
+      backgroundColor: labels.map(l => colors[l]), borderRadius: 3 }] },
+    options: { plugins: legendOff, scales: { x: { grid: { display: false } }, y: { beginAtZero: true, ticks: { precision: 0 } } } } });
+  const edges = [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0001], bl = edges.slice(0, -1).map((e, i) => e.toFixed(1) + '-' + (i === 6 ? '1.0' : edges[i + 1].toFixed(1)));
+  const hist = edges.slice(0, -1).map((e, i) => list.filter(r => r.confidence >= e && r.confidence < edges[i + 1]).length);
+  mk('ch-conf', { type: 'bar', data: { labels: bl, datasets: [{ data: hist, backgroundColor: css('--s1'), borderRadius: 3 }] },
+    options: { plugins: legendOff, scales: { x: { grid: { display: false }, title: { display: true, text: 'Confidence' } }, y: { beginAtZero: true, ticks: { precision: 0 } } } } });
+
+  $('#s-table').innerHTML = list.length ? `<thead><tr><th>Text</th><th>Predicted</th><th>Confidence</th><th>Review</th></tr></thead><tbody>` +
+    list.map(r => `<tr><td>${esc(r.text)}</td><td><span class="pill ${esc(r.predicted_sentiment)}">${esc(r.predicted_sentiment)}</span></td>
+      <td><span class="bar" style="width:${Math.round(r.confidence * 60)}px"></span>${r.confidence.toFixed(2)}</td>
+      <td>${r.needs_review ? '<span class="pill review">review</span>' : ''}</td></tr>`).join('') + '</tbody>'
+    : '<tbody><tr><td class="empty">No texts match these filters.</td></tr></tbody>';
+}
+$('#q').oninput = e => { S.q = e.target.value; renderSentiment(); };
+$('#s-review').onclick = () => { S.review = !S.review; renderSentiment(); };
+
+/* ---------- model quality ---------- */
+function renderModel() {
+  const m = D.metrics, L = ['negative', 'neutral', 'positive'];
+  if (!m) { $('#m-kpis').innerHTML = '<p class="empty">Run train_model.py to populate this page.</p>'; return; }
+  $('#m-kpis').innerHTML = kpi('Selected model', esc(String(m.selected_model).replace(/_/g, ' ')), 'best CV macro F1') +
+    kpi('Test accuracy', pct(m.test_accuracy), 'n = ' + fmt(m.n_test)) +
+    kpi('Macro F1', m.test_macro_f1.toFixed(3), 'precision ' + m.test_macro_precision.toFixed(3) + ' / recall ' + m.test_macro_recall.toFixed(3)) +
+    kpi('Calibration error', m.expected_calibration_error.toFixed(3), 'ECE, lower is better');
+  const cmp = D.comparison;
+  mk('ch-cmp', { type: 'bar', data: { labels: cmp.map(r => r.model.replace(/_/g, ' ')), datasets: [{ data: cmp.map(r => r.cv_macro_f1_mean),
+      backgroundColor: cmp.map((r, i) => i === 0 ? css('--s1') : css('--s6')), borderRadius: 3 }] },
+    options: { indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'Macro F1 ' + c.parsed.x.toFixed(3) + ' ± ' + cmp[c.dataIndex].cv_macro_f1_std.toFixed(3) } } },
+      scales: { x: { min: 0, max: 1 }, y: { grid: { display: false } } } },
+    plugins: [{ id: 'err', afterDatasetsDraw(ch) {
+      const { ctx, scales: { x } } = ch, meta = ch.getDatasetMeta(0);
+      ctx.save(); ctx.strokeStyle = css('--ink'); ctx.lineWidth = 1.5;
+      meta.data.forEach((bar, i) => { const sd = cmp[i].cv_macro_f1_std, a = x.getPixelForValue(Math.max(0, cmp[i].cv_macro_f1_mean - sd)), b = x.getPixelForValue(Math.min(1, cmp[i].cv_macro_f1_mean + sd));
+        ctx.beginPath(); ctx.moveTo(a, bar.y); ctx.lineTo(b, bar.y); ctx.moveTo(a, bar.y - 4); ctx.lineTo(a, bar.y + 4); ctx.moveTo(b, bar.y - 4); ctx.lineTo(b, bar.y + 4); ctx.stroke(); });
+      ctx.restore(); } }] });
+
+  const cm = D.confusion, tot = r => cm[r].reduce((a, b) => a + b, 0) || 1;
+  let h = '<div class="h"></div>' + L.map(l => `<div class="h">pred ${l}</div>`).join('');
+  L.forEach((l, i) => {
+    h += `<div class="h" style="text-align:right;align-self:center">actual ${l}</div>`;
+    cm[i].forEach((v, j) => { const s = v / tot(i), good = i === j;
+      const bg = good ? css('--s1') : css('--bad');
+      h += `<div class="cell" style="background:color-mix(in srgb, ${bg} ${Math.round(s * 85)}%, var(--surface));border:1px solid var(--line)"><b>${v}</b><span>${pct(s, 0)}</span></div>`; });
+  });
+  $('#cm').className = 'cm'; $('#cm').innerHTML = h;
+
+  $('#m-class').innerHTML = '<thead><tr><th>Class</th><th class="n">Precision</th><th class="n">Recall</th><th class="n">F1</th><th class="n">Support</th></tr></thead><tbody>' +
+    D.classes.map(r => `<tr><td>${esc(r['class'])}</td><td class="n">${r.precision.toFixed(3)}</td><td class="n">${r.recall.toFixed(3)}</td><td class="n">${r['f1-score'].toFixed(3)}</td><td class="n">${Math.round(r.support)}</td></tr>`).join('') + '</tbody>';
+
+  const ft = D.features || [];
+  $('#feat').innerHTML = ft.length ? L.map(c => `<div><h3>${c}</h3><ol>${ft.filter(f => f['class'] === c).slice(0, 8).map(f => `<li>${esc(f.feature)}</li>`).join('')}</ol></div>`).join('')
+    : '<p class="empty">Not available for this model.</p>';
+
+  $('#m-miss').innerHTML = D.misclassified.length ? '<thead><tr><th>Sentence</th><th>Actual</th><th>Predicted</th><th class="n">Confidence</th></tr></thead><tbody>' +
+    D.misclassified.map(r => `<tr><td>${esc(r.sentence)}</td><td><span class="pill ${esc(r.actual)}">${esc(r.actual)}</span></td><td><span class="pill ${esc(r.predicted)}">${esc(r.predicted)}</span></td><td class="n">${r.confidence.toFixed(2)}</td></tr>`).join('') + '</tbody>'
+    : '<tbody><tr><td class="empty">No misclassified examples in the test set.</td></tr></tbody>';
+}
+
+/* ---------- routing + boot ---------- */
+function render() {
+  document.querySelectorAll('.page').forEach(p => p.classList.toggle('on', p.id === 'p-' + S.page));
+  document.querySelectorAll('nav.tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.page === S.page));
+  renderSlicers();
+  const rs = rows();
+  if (S.page === 'overview') renderOverview(rs);
+  if (S.page === 'complaints') renderComplaints(rs);
+  if (S.page === 'sentiment') renderSentiment();
+  if (S.page === 'model') renderModel();
+}
+document.querySelectorAll('nav.tabs button').forEach(b => b.onclick = () => {
+  S.page = b.dataset.page;
+  try { history.replaceState(null, '', '#' + S.page); } catch (e) {}
+  render();
+});
+const h0 = location.hash.slice(1);
+if (['overview', 'complaints', 'sentiment', 'model'].includes(h0)) S.page = h0;
+$('#demo').hidden = !D.meta.demo;
+$('#foot').textContent = (D.meta.demo ? 'Synthetic demo data: figures here are not real-world results. ' : '') +
+  'Source: ' + D.meta.complaints_source + '. Built ' + D.meta.built + '.';
+render();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
+new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+</script>

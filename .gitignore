@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+models/*.joblib
+outputs/*
+!outputs/.gitkeep
+!outputs/chart_*.png
+!outputs/confusion_matrix*.png
+data/cfpb_complaints.csv
+data/financial_phrasebank.csv
+data/*.txt
