@@ -1,0 +1,46 @@
+class,rank,feature,weight
+negative,1,year missing,1.3932
+negative,2,revenue fell,1.3932
+negative,3,missing analyst,1.3932
+negative,4,missing,1.3932
+negative,5,fell,1.3932
+negative,6,year,0.7196
+negative,7,after,0.7022
+negative,8,operating,0.6774
+negative,9,demand,0.6774
+negative,10,its,0.5652
+negative,11,analyst expectations,0.348
+negative,12,analyst,0.348
+negative,13,over year,0.348
+negative,14,over,0.348
+negative,15,revenue,0.348
+neutral,1,the,1.205
+neutral,2,will,0.8417
+neutral,3,the region,0.6645
+neutral,4,region,0.6645
+neutral,5,operates,0.6645
+neutral,6,offices across,0.6645
+neutral,7,offices,0.6645
+neutral,8,firm operates,0.6645
+neutral,9,across the,0.6645
+neutral,10,across,0.6645
+neutral,11,company,0.5432
+neutral,12,the company,0.5432
+neutral,13,publish its,0.5122
+neutral,14,quarterly,0.5122
+neutral,15,quarterly report,0.5122
+positive,1,year beating,1.303
+positive,2,revenue grew,1.303
+positive,3,beating,1.303
+positive,4,grew,1.303
+positive,5,beating analyst,1.303
+positive,6,and,0.8607
+positive,7,year,0.7777
+positive,8,after,0.635
+positive,9,on,0.5821
+positive,10,the firm,0.5134
+positive,11,firm,0.5134
+positive,12,profit,0.489
+positive,13,over year,0.2263
+positive,14,over,0.2263
+positive,15,revenue,0.2263

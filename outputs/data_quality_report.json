@@ -1,0 +1,30 @@
+{
+  "rows_in": 60163,
+  "unparseable_dates": 0,
+  "missing_values": {
+    "date_received": 0,
+    "product": 0,
+    "issue": 5,
+    "company": 0,
+    "response": 0,
+    "timely": 0,
+    "state": 299,
+    "complaint_id": 0
+  },
+  "duplicate_ids_dropped": 0,
+  "rows_out": 60158,
+  "rows_dropped": 5,
+  "date_min": "2024-01-01",
+  "date_max": "2024-06-30",
+  "input_file": "data/cfpb_complaints_2024_H1.csv",
+  "column_mapping": {
+    "date": "Date received",
+    "product": "Product",
+    "issue": "Issue",
+    "company": "Company",
+    "response": "Company response to consumer",
+    "timely": "Timely response?",
+    "state": "State",
+    "complaint_id": "Complaint ID"
+  }
+}

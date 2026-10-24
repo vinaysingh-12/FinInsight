@@ -1,0 +1,4 @@
+sentence,actual,predicted,confidence,correct
+Net sales declined and margins shrank compared with last year.,negative,positive,0.7354,False
+Shares dropped after the firm announced layoffs and a plant closure.,negative,positive,0.6829,False
+The company raised its full-year profit guidance after a strong quarter.,positive,negative,0.5544,False

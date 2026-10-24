@@ -1,0 +1,4 @@
+,pred_negative,pred_neutral,pred_positive
+actual_negative,4,0,2
+actual_neutral,0,12,0
+actual_positive,1,0,5

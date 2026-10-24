@@ -1,0 +1,490 @@
+company,total_complaints,relief_rate_pct,timely_response_rate_pct
+JPMORGAN CHASE & CO.,6150,17.9,100.0
+"CITIBANK, N.A.",4493,53.5,100.0
+CAPITAL ONE FINANCIAL CORPORATION,4439,24.4,100.0
+WELLS FARGO & COMPANY,4246,22.6,100.0
+"BANK OF AMERICA, NATIONAL ASSOCIATION",4157,47.2,99.1
+"TRANSUNION INTERMEDIATE HOLDINGS, INC.",3152,96.4,100.0
+"EQUIFAX, INC.",3055,61.2,100.0
+Experian Information Solutions Inc.,2874,12.9,100.0
+SYNCHRONY FINANCIAL,2743,30.0,100.0
+AMERICAN EXPRESS COMPANY,2248,21.2,100.0
+Chime Financial Inc,1603,6.4,100.0
+GOLDMAN SACHS BANK USA,1387,31.0,99.7
+DISCOVER BANK,1318,33.2,100.0
+NAVY FEDERAL CREDIT UNION,1313,23.3,100.0
+"Bread Financial Holdings, Inc.",1281,58.0,100.0
+U.S. BANCORP,1190,41.4,100.0
+TD BANK US HOLDING COMPANY,878,40.5,100.0
+TRUIST FINANCIAL CORPORATION,876,13.8,99.8
+BARCLAYS BANK DELAWARE,843,11.4,100.0
+PNC Bank N.A.,656,15.9,100.0
+UNITED SERVICES AUTOMOBILE ASSOCIATION,626,23.6,99.8
+"CITIZENS FINANCIAL GROUP, INC.",568,24.1,100.0
+"SOFI TECHNOLOGIES, INC.",507,9.5,99.4
+BMO BANK NATIONAL ASSOCIATION,504,39.1,100.0
+"Block, Inc.",486,1.4,100.0
+ALLY FINANCIAL INC.,473,33.4,100.0
+"Credit Karma, LLC",347,40.6,93.7
+FIFTH THIRD FINANCIAL CORPORATION,343,5.8,100.0
+"Paypal Holdings, Inc",332,23.8,100.0
+"CLGF Holdco 1, LLC",330,35.5,100.0
+REGIONS FINANCIAL CORPORATION,272,33.5,100.0
+"HUNTINGTON NATIONAL BANK, THE",270,55.2,100.0
+KEYCORP,240,33.3,100.0
+Atlanticus Services Corporation,217,55.3,100.0
+M&T BANK CORPORATION,197,27.4,100.0
+FIRST NATIONAL BANK OF OMAHA,183,19.1,100.0
+ROBINHOOD MARKETS INC.,165,0.0,82.4
+PENTAGON FEDERAL CREDIT UNION,162,19.8,100.0
+Self Financial Inc.,131,3.8,100.0
+"SANTANDER HOLDINGS USA, INC.",127,3.9,100.0
+Synovus Bank,117,0.9,100.0
+"Early Warning Services, LLC",115,0.0,100.0
+Netspend Corporation,113,0.0,91.2
+"Continental Finance Company, LLC",113,0.0,100.0
+Comerica,109,48.6,100.0
+"WEBSTER BANK, NATIONAL ASSOCIATION",107,7.5,100.0
+"OPTUM BANK, INC.",99,0.0,100.0
+"UPGRADE, INC.",97,6.2,99.0
+ENCORE CAPITAL GROUP INC.,95,46.3,100.0
+"Affirm Holdings, Inc",95,0.0,100.0
+CapitalJ Inc. dba Juno,92,0.0,100.0
+FinCo Services Inc DBA Current,91,17.6,87.9
+"Fidelity National Information Services, Inc. (FNIS)",89,0.0,100.0
+"Avant Holding Company, Inc.",84,2.4,98.8
+FIRST PORTFOLIO SERVICING INC,82,0.0,98.8
+Resurgent Capital Services L.P.,78,10.3,100.0
+HSBC NORTH AMERICA HOLDINGS INC.,73,2.7,100.0
+"CHARLES SCHWAB CORPORATION, THE",64,6.2,100.0
+NEW YORK COMMUNITY BANCORP INC,62,0.0,100.0
+MoneyLion Inc.,59,44.1,100.0
+"AXOS FINANCIAL, INC.",55,0.0,100.0
+ALLIANT CREDIT UNION,52,17.3,98.1
+"FIRST CITIZENS BANCSHARES, INC.",51,21.6,100.0
+FIRST TECHNOLOGY FEDERAL CREDIT UNION,51,31.4,100.0
+FISERV FINXACT CORE,48,2.1,100.0
+TransferWise Ltd,47,6.4,95.7
+SUNCOAST CREDIT UNION,44,0.0,100.0
+"Portfolio Recovery Associates, LLC",43,18.6,100.0
+VYSTAR CREDIT UNION,43,14.0,100.0
+Army and Air Force Exchange Service,43,0.0,100.0
+"ARVEST BANK GROUP, INC.",42,2.4,100.0
+Kikoff Inc.,40,0.0,100.0
+"BANK OF NEW YORK MELLON CORPORATION, THE",40,0.0,100.0
+STATE EMPLOYEES’ CREDIT UNION,40,0.0,97.5
+FIRST HORIZON BANK,39,10.3,100.0
+"Colony Brands, Inc.",38,2.6,100.0
+UMB FINANCIAL CORPORATION,38,0.0,100.0
+BOEING EMPLOYEES' CREDIT UNION,38,0.0,94.7
+OneMain Finance Corporation,36,11.1,100.0
+"CULLEN/FROST BANKERS, INC.",34,8.8,100.0
+Indie Technology DBA Found,34,0.0,91.2
+COMMERCE BANK,33,18.2,100.0
+BANCO POPULAR DE PUERTO RICO,32,12.5,96.9
+"Prosper Marketplace, Inc.",31,12.9,100.0
+AMERICA FIRST FEDERAL CREDIT UNION,31,0.0,96.8
+First Technology Federal Credit Union,30,0.0,100.0
+MOUNTAIN AMERICA FEDERAL CREDIT UNION,30,20.0,100.0
+Payfare International Inc.,29,0.0,100.0
+OLD NATIONAL BANCORP,27,3.7,100.0
+ASSOCIATED BANC-CORP,27,0.0,100.0
+MORGAN STANLEY & CO. LLC,27,0.0,100.0
+"GOLDEN 1 CREDIT UNION, THE",27,7.4,100.0
+RANDOLPH-BROOKS FEDERAL CREDIT UNION,27,0.0,100.0
+FIRST NATIONAL BANK OF PENNSYLVANIA,27,25.9,100.0
+"Mercury Technologies, Inc.",26,7.7,100.0
+TomoCredit Inc.,25,0.0,76.0
+ADP Inc.,24,0.0,100.0
+Revolut Technologies Inc.,24,4.2,100.0
+"COLUMBIA BANKING SYSTEM, INC.",23,4.3,100.0
+FourLeaf Federal Credit Union,22,0.0,100.0
+FIRSTBANK PUERTO RICO,22,0.0,100.0
+Klarna AB,22,0.0,100.0
+ZIONS BANCORPORATION,21,14.3,100.0
+"Dave Operating, LLC",21,0.0,95.2
+"TEXAS CAPITAL BANCSHARES, INC.",20,0.0,100.0
+AMERIS BANCORP,19,0.0,100.0
+CARD Corporation,19,0.0,100.0
+Mercury Financial Intermediate LLC,17,17.6,100.0
+CL Holdings LLC,17,0.0,100.0
+SOUTHSTATE BANK CORPORATION,17,0.0,100.0
+Winklevoss Exchange LLC,17,0.0,100.0
+EAST WEST BANK,17,0.0,100.0
+MIDFIRST BANK,17,29.4,100.0
+Incomm Holdings Inc.,17,0.0,76.5
+Albert Corporation,16,0.0,100.0
+GLOBAL CREDIT UNION,16,18.8,100.0
+"EVERBANK, NATIONAL ASSOCIATION",15,0.0,100.0
+M1 Holdings Inc.,15,0.0,86.7
+BANK OZK,14,0.0,100.0
+"TradeStation Group, Inc.",14,42.9,100.0
+FIRSTBANK,13,30.8,100.0
+Novo Platform Inc.,13,0.0,23.1
+CITY NATIONAL BANK,13,0.0,100.0
+"Relay Financial (US), Corp.",13,0.0,76.9
+BANK OF HAWAII CORPORATION,13,23.1,100.0
+OPORTUN FINANCIAL CORPORATION,13,7.7,100.0
+SCHOOLSFIRST FEDERAL CREDIT UNION,12,0.0,100.0
+"Conn's, Inc.",12,0.0,100.0
+"Foris DAX, Inc.",12,0.0,100.0
+WAFD BANK,12,0.0,100.0
+"FIRST INTERSTATE BANCSYSTEM, INC.",12,25.0,100.0
+CADENCE BANK,12,0.0,100.0
+"Marlette Funding, LLC",12,41.7,100.0
+FULTON FINANCIAL CORPORATION,12,16.7,91.7
+BOK FINANCIAL CORP,12,8.3,100.0
+Google Compare Credit Cards Inc.,11,0.0,18.2
+"ACIMA CREDIT, LLC",11,18.2,100.0
+CIBC BANCORP USA INC.,11,0.0,100.0
+"Westlake Services, LLC",11,0.0,100.0
+"Ava Finance, Inc",11,9.1,100.0
+VALLEY NATIONAL BANCORP,11,0.0,100.0
+Next Financial Inc. dba Copper,11,0.0,100.0
+"Atlantic Union Bankshares, Inc.",11,9.1,100.0
+Betterment LLC,10,10.0,100.0
+"SANDY SPRING BANCORP, INC.",10,20.0,100.0
+"Branch Messenger, Inc.",10,0.0,100.0
+"PROSPERITY BANCSHARES, INC.",10,40.0,100.0
+NORTHWEST BANCSHARES INC,10,40.0,100.0
+"WESBANCO BANK, INC.",10,0.0,90.0
+SIMMONS FIRST NATIONAL CORPORATION,9,22.2,100.0
+"Propel, Inc.",9,0.0,100.0
+FIRST COMMONWEALTH FINANCIAL CORPORATION,9,11.1,100.0
+SAN DIEGO COUNTY CREDIT UNION,9,11.1,100.0
+"Coinbase, Inc.",9,22.2,100.0
+LAKE MICHIGAN CREDIT UNION,9,0.0,100.0
+"FIRST HAWAIIAN, INC.",9,0.0,100.0
+BANNER CORPORATION,9,22.2,100.0
+Newport Intermediate Inc.,9,22.2,100.0
+CRED Technologies dba cred.ai,9,11.1,100.0
+HANCOCK WHITNEY BANK,8,25.0,100.0
+CATHAY BANK,8,0.0,100.0
+SECURITY SERVICE FEDERAL CREDIT UNION,8,50.0,100.0
+"American First Finance, Inc.",8,50.0,100.0
+WSFS FINANCIAL CORPORATION,8,0.0,87.5
+RENASANT CORPORATION,8,25.0,100.0
+Conduent Incorporated,8,0.0,87.5
+DOLLAR MUTUAL BANCORP,7,14.3,100.0
+"Sunbit, Inc.",7,0.0,100.0
+"HEARTLAND FINANCIAL USA, INC.",7,14.3,100.0
+EASTERN BANKSHARES INC,7,14.3,100.0
+SLM CORPORATION,7,28.6,100.0
+"BANKMOBILE TECHNOLOGIES, INC",6,0.0,100.0
+"HOME BANCSHARES, INC.",6,0.0,100.0
+Meta Payments Inc.,6,50.0,83.3
+FORD MOTOR CREDIT CO.,6,33.3,100.0
+BUSEY BANK,6,33.3,100.0
+"APPLE FINANCIAL HOLDINGS, INC.",6,0.0,100.0
+Glacier Bancorp Inc.,6,0.0,100.0
+"B9, Inc.",6,0.0,100.0
+GREENSTATE CREDIT UNION,6,33.3,100.0
+Sezzle Inc.,6,0.0,100.0
+"Total Card, Inc.",6,0.0,83.3
+"PACIFIC PREMIER BANCORP, INC.",6,0.0,100.0
+"Skrill USA, Inc.",6,0.0,83.3
+"Spring Oaks Capital, LLC",6,0.0,100.0
+"DIME COMMUNITY BANCSHARES, INC.",5,40.0,100.0
+"Opportunity Financial, LLC",5,0.0,100.0
+INDEPENDENT BANK CORP.,5,20.0,100.0
+WESTERN ALLIANCE BANCORPORATION,5,40.0,100.0
+Mercedes Benz Financial Services,5,0.0,100.0
+"Certegy Holdings, LLC",5,0.0,100.0
+TFS FINANCIAL CORPORATION,5,0.0,100.0
+FIRST MERCHANTS CORPORATION,5,0.0,100.0
+"Majority USA, LLC",5,20.0,100.0
+Groundfloor Finance Inc.,5,0.0,20.0
+The Aligned Company DBA Extra,5,0.0,100.0
+MECHANICS BANK,5,0.0,100.0
+"CENTRAL BANCOMPANY, INC",5,20.0,100.0
+"CAVALRY INVESTMENTS, LLC",5,0.0,100.0
+"BCI FINANCIAL GROUP, INC.",5,20.0,100.0
+NBT BANCORP INC.,5,20.0,100.0
+Westcreek Financial,5,0.0,100.0
+"PLS GROUP, INC",4,0.0,100.0
+LEXISNEXIS,4,0.0,100.0
+Healthcare Finance Direct LLC.,4,0.0,100.0
+"Hatfield, Inc.",4,0.0,100.0
+OCEANFIRST FINANCIAL CORP.,4,0.0,100.0
+Kovo,4,0.0,100.0
+"Grain Technology, Inc.",4,0.0,100.0
+"Mercari, Inc.",4,0.0,100.0
+TRANSWORLD SYSTEMS INC,4,0.0,100.0
+Regional Management Corporation,4,0.0,100.0
+"ENOVA INTERNATIONAL, INC.",4,0.0,100.0
+"Security Credit Services, LLC",4,0.0,100.0
+Credit Corp Solutions Inc.,4,0.0,100.0
+"Rubin & Rothman, LLC",4,0.0,100.0
+BANKERS HEALTHCARE GROUP LLC,4,0.0,100.0
+Fidem Baltimore Holdings LLC,4,0.0,100.0
+CVB FINANCIAL CORP.,4,0.0,100.0
+"GREENSKY OPERATIONS, LLC",4,0.0,100.0
+Absolute Resolutions Corp.,4,0.0,100.0
+Concerto Card Company,4,25.0,100.0
+TOYOTA MOTOR CREDIT CORPORATION,4,0.0,100.0
+Zip Co US Inc.,4,0.0,100.0
+"CUSTOMERS BANCORP, INC",3,33.3,100.0
+"CAINE & WEINER COMPANY, INC.",3,0.0,100.0
+CREDIT ACCEPTANCE CORPORATION,3,0.0,100.0
+Thaxton Investment Corporation,3,66.7,100.0
+"COMMUNITY FINANCIAL SYSTEM, INC.",3,0.0,100.0
+"Northern Trust Company, The",3,0.0,100.0
+"CHECKredi of Kentucky, LLC",3,0.0,100.0
+"CCS Financial Services, Inc.",3,0.0,100.0
+"General Motors Financial Company, Inc.",3,0.0,100.0
+Bright Capital Inc,3,0.0,100.0
+"Bridge IT, Inc.",3,0.0,100.0
+"Jim Bottin Enterprises, Inc",3,0.0,100.0
+NISSAN MOTOR ACCEPTANCE COMPANY LLC,3,0.0,100.0
+"UNITED BANKSHARES, INC.",3,0.0,100.0
+UNITED COMMUNITY BANK,3,0.0,100.0
+"BILL.COM, LLC",3,0.0,100.0
+BEACON FINANCIAL CORPORATION,3,33.3,66.7
+Velocity Portfolio Group,3,0.0,100.0
+"WESTERN UNION COMPANY, THE",3,0.0,100.0
+Activehours,3,33.3,100.0
+Yamaha Motor Finance Corporation USA,3,0.0,100.0
+ZWICKER & ASSOCIATES,3,0.0,100.0
+UBS BANK USA,3,0.0,100.0
+DigniFi,3,0.0,33.3
+TRUSTMARK CORPORATION,3,33.3,100.0
+"Pavilion Payments US BuyerCo, LLC",3,0.0,100.0
+Possible Financial Inc,3,0.0,100.0
+Global Lending Services LLC,3,0.0,100.0
+"GLOBAL CLIENT SOLUTIONS, LLC",3,0.0,100.0
+Radius Global Solutions LLC,3,0.0,100.0
+"First National Collection Bureau, Inc.",3,0.0,100.0
+FIRST UNITED BANK AND TRUST COMPANY,3,0.0,100.0
+FIRST FINANCIAL BANCORP,3,0.0,100.0
+"Exeter Finance, LLC.",3,0.0,100.0
+"PINNACLE FINANCIAL PARTNERS, INC.",3,0.0,100.0
+"Credit Control, LLC",3,0.0,100.0
+Mr. Cooper Group Inc.,2,0.0,100.0
+Solar Mosaic LLC,2,0.0,100.0
+SoLo Funds Inc.,2,0.0,50.0
+Tally Technologies,2,0.0,100.0
+"Tesla, Inc.",2,0.0,100.0
+"Webcollex, LLC",2,0.0,100.0
+"Phillips & Cohen Associates, Ltd.",2,0.0,100.0
+WEALTHFRONT CORPORATION,2,0.0,100.0
+"Perpay, Inc.",2,50.0,100.0
+V and H Portfolio,2,0.0,100.0
+Pending Company Match,2,50.0,100.0
+Revenued LLC,2,50.0,100.0
+Payward Ventures Inc. dba Kraken,2,0.0,100.0
+SinglePoint GI,2,0.0,100.0
+"Maximus Federal Services, Inc.",2,0.0,100.0
+PLAID INC.,2,0.0,100.0
+"NCD Financial, LLC",2,0.0,100.0
+"NEW IMAGITAS, INC",2,0.0,100.0
+"UHG, LLC",2,0.0,100.0
+"PALOMAR ENTERPRISES, LLC",2,0.0,100.0
+SEACOAST BANKING CORPORATION OF FLORIDA,2,50.0,100.0
+"National Credit Adjusters, LLC",2,0.0,100.0
+"STATE BANKSHARES, INC.",2,0.0,100.0
+"Nav Technologies, Inc.",2,0.0,100.0
+"Payactiv, Inc.",2,0.0,100.0
+"The Best Service Co.,Inc",2,0.0,100.0
+"PROVIDENT FINANCIAL SERVICES, INC.",2,50.0,100.0
+"The Bureaus, Inc.",2,0.0,100.0
+"Old Dominion Mortgage Co., Inc",2,0.0,0.0
+"J J Marshall & Associates, Inc",2,0.0,100.0
+eToro USA LLC,2,50.0,100.0
+CORELOGIC INC,2,0.0,100.0
+BANCFIRST CORPORATION,2,0.0,100.0
+"John C. Heath, Attorney at Law, PLLC",2,0.0,100.0
+ADIR INTERNATIONAL LLC,2,50.0,100.0
+"ITALBANK INTERNATIONAL, INC.",2,100.0,0.0
+"BANKUNITED, NATIONAL ASSOCIATION",2,0.0,100.0
+"BMW Financial Services NA, LLC",2,0.0,100.0
+IDAHO CENTRAL CREDIT UNION,2,0.0,100.0
+"Harpeth Financial Services, LLC",2,0.0,100.0
+CCF Intermediate Holdings LLC,2,0.0,100.0
+Grow Credit Inc,2,0.0,100.0
+"Capital Accounts, LLC",2,0.0,0.0
+"Aqua Finance, Inc.",2,100.0,100.0
+"CarMax, Inc.",2,0.0,100.0
+"Carvana Group, LLC",2,0.0,100.0
+"Firstsource Business Process Services, LLC",2,0.0,100.0
+"Consolidated Management Group, LLC",2,0.0,0.0
+FC HoldCo LLC,2,0.0,100.0
+Credit Card Receivables Fund Incorporated,2,0.0,100.0
+EdFinancial Services,2,0.0,0.0
+Credit Fresh Holdings Inc,2,0.0,100.0
+Diverse Funding Associates LLC,2,0.0,100.0
+CrossCountry Mortgage LLC,2,0.0,100.0
+"BANC OF CALIFORNIA, INC.",2,50.0,100.0
+"DailyPay, Inc",2,0.0,100.0
+Lendmark Financial Services,2,0.0,100.0
+"LD Holdings Group, LLC",2,0.0,100.0
+AMERICAN HONDA FINANCE CORP,2,0.0,50.0
+Loqbox US Inc,2,0.0,50.0
+"LIVE OAK BANCSHARES, INC.",2,0.0,100.0
+MONEYGRAM PAYMENT SYSTEMS WORLDWIDE INC,2,0.0,100.0
+"Apelles, LLC",1,0.0,100.0
+Synergetic Communication Inc,1,0.0,100.0
+"Compass Recovery Group, LLC",1,0.0,100.0
+"Client Services, Inc.",1,0.0,100.0
+Changed Inc.,1,0.0,100.0
+"CashRepublic Holdings, Inc.",1,0.0,100.0
+"Cash Express, LLC",1,0.0,100.0
+"Admin Recovery, LLC",1,0.0,100.0
+"Cascade CISS Holdings, LLC",1,0.0,100.0
+"Ability Recovery Services, LLC",1,0.0,100.0
+"Advantage Credit, Inc.",1,0.0,100.0
+"TRUEBILL, INC",1,0.0,100.0
+"Weltman, Weinberg & Reis Co., L.P.A.",1,0.0,100.0
+Taekus Inc,1,0.0,100.0
+CURevl LLC,1,100.0,100.0
+"Suttell, Hammer & White, P.S",1,0.0,100.0
+"StellarFinance, Inc.",1,100.0,100.0
+"Stenger & Stenger, P.C",1,0.0,100.0
+"APEX Asset Management, LLC",1,0.0,0.0
+"Securus J Holdings, LLC",1,0.0,100.0
+"Selip & Stylianou, LLP",1,0.0,100.0
+"AMERIPRISE BANK, FSB",1,0.0,100.0
+"Sequium Asset Solutions, LLC",1,100.0,100.0
+"SettlementOne, LLC",1,0.0,100.0
+"CreditNinja Lending, LLC",1,0.0,0.0
+Sigue Corp.,1,0.0,0.0
+"Credit Central Holdings, LLC",1,0.0,100.0
+"Tenaglia & Hunt, PA",1,0.0,100.0
+"ARS National Services, Inc.",1,0.0,100.0
+"Cordoba Legal Group, PLLC.",1,0.0,100.0
+Source Receivables Management LLC,1,0.0,100.0
+Southwest Stage Funding,1,0.0,100.0
+"Specialized Collection Systems, Inc.",1,0.0,100.0
+World Acceptance Corporation,1,0.0,100.0
+"Continental Services Group, Inc. d/b/a ConServe",1,0.0,100.0
+"Tebo Financial Services, Inc.",1,0.0,100.0
+COOPERATIVA DE AHORRO Y CREDITO HATILLO,1,100.0,100.0
+"Aldous & Associates, PLLC",1,0.0,100.0
+"American Financial Resources, Inc.",1,0.0,100.0
+Alorica Inc.,1,0.0,0.0
+"American Credit Acceptance, LLC",1,0.0,100.0
+"United Collection Bureau, Inc.",1,0.0,100.0
+"American Cycle Finance, Inc.",1,0.0,0.0
+United PanAm Financial Corp.,1,0.0,100.0
+"United Shore Financial Services, LLC",1,0.0,100.0
+"Uplift, Inc",1,0.0,100.0
+Amscot Corporation,1,0.0,100.0
+CNG FINANCIAL CORPORATION,1,0.0,100.0
+"Andreu, Palma & Andreu, PL",1,0.0,100.0
+"VERITEX HOLDINGS, INC.",1,0.0,100.0
+VIAMERICAS CORPORATION,1,0.0,100.0
+VW Credit,1,0.0,100.0
+"Ascension Point Recovery Services, LLC",1,100.0,100.0
+Arco Collection Services LLC,1,0.0,0.0
+"Voss & Klein, LLC",1,0.0,100.0
+"BREMER BANK, NATIONAL ASSOCIATION",1,0.0,100.0
+BROADVIEW MORTGAGE CORPORATION,1,0.0,0.0
+"BYS, LLC. d/b/a Boost Your Score",1,0.0,100.0
+"Ballybunion Enterprises, Inc",1,0.0,100.0
+"CMRE Financial Services, Inc.",1,0.0,100.0
+"Waypoint Resource Group, LLC",1,0.0,100.0
+CEX.IO CORP.,1,0.0,100.0
+"The CMI Group, Inc.",1,100.0,100.0
+The Receivable Management Services LLC,1,0.0,100.0
+"Tomo Networks, Inc.",1,0.0,100.0
+Watercress Financial Group LLC,1,0.0,100.0
+Torriere Holdings INC,1,0.0,100.0
+"CBC Companies, Inc.",1,0.0,100.0
+"CAROLINA FINANCE, LLC",1,0.0,100.0
+"Data and Contact Management Solutions, LLC",1,0.0,100.0
+Washington Trust Bank Financial Corporation,1,100.0,100.0
+"Trident Asset Management, L.L.C.",1,0.0,100.0
+"Bitstamp USA, Inc.",1,0.0,0.0
+"Bepensa Capital, Inc.",1,0.0,100.0
+Blackhawk Network Holdings Inc.,1,0.0,100.0
+McKenzie Management LLC,1,0.0,0.0
+"SUNRISE CREDIT SERVICES, INC",1,0.0,100.0
+"Klutch Technologies, Inc.",1,100.0,100.0
+Kingston Data & Credit International Inc.,1,0.0,100.0
+"King of Credit Financial, Inc",1,0.0,100.0
+"Kiavi, Inc.",1,0.0,100.0
+Kashable LLC,1,0.0,100.0
+"OPT-OUT SERVICES, LLC",1,0.0,100.0
+Kadent Corporation,1,0.0,0.0
+Old Republic National Title Holding Co.,1,100.0,100.0
+"January Technologies, Inc",1,0.0,100.0
+"JTM Capital Management, LLC",1,0.0,100.0
+"Ingo Money, Inc.",1,0.0,100.0
+IQOR US INC,1,0.0,100.0
+"INTER & CO PAYMENTS, INC.",1,0.0,100.0
+"PLANET HOME LENDING, LLC",1,0.0,100.0
+INSPERITY INC,1,0.0,100.0
+"INDUSTRIAL AND COMMERCIAL BANK OF CHINA (USA), NATIONAL ASSOCIATION",1,0.0,100.0
+PREFERRED CREDIT INC,1,0.0,100.0
+PRIMARY RESIDENTIAL MORTGAGE,1,0.0,100.0
+PRONTO FINANCE INC.,1,0.0,100.0
+"INDEPENDENT BANK GROUP, INC.",1,0.0,100.0
+"Northstar Location Services, LLC",1,0.0,100.0
+"Kriya Capital, LLC",1,100.0,100.0
+"PatientFi, Inc.",1,0.0,100.0
+"LAKELAND BANCORP, INC.",1,0.0,100.0
+Massachusetts Educational Financing Authority,1,0.0,100.0
+"MRS BPO, LLC",1,0.0,100.0
+MOHELA,1,0.0,100.0
+MISSION FINANCIAL SERVICES CORPORATION,1,0.0,100.0
+Michael J Adams PC,1,0.0,100.0
+"Mobiloans, LLC",1,0.0,0.0
+"Lyons, Doughty & Veldhuis, PC",1,0.0,100.0
+Monterey Financial Services LLC,1,0.0,100.0
+"Love, Beal & Nixon, P.C.",1,0.0,100.0
+"LoanCare, LLC",1,0.0,100.0
+"Lloyd & McDaniel, PLC",1,0.0,100.0
+Linebarger Goggan Blair & Sampson LLP,1,0.0,100.0
+"NEXBANK CAPITAL, INC.",1,0.0,100.0
+LendingPoint Holdings LLC,1,0.0,100.0
+Larry H. Miller Group of Companies,1,0.0,100.0
+"National Credit Systems,Inc.",1,0.0,100.0
+"LDF Holdings, LLC",1,0.0,100.0
+"Nelnet, Inc.",1,0.0,100.0
+"NerdWallet, Inc.",1,0.0,100.0
+"Paramount GR Holdings, LLC",1,0.0,100.0
+"I.C. System, Inc.",1,0.0,100.0
+Deutsche Bank,1,0.0,100.0
+"Reset Financial Technologies, Inc.",1,0.0,100.0
+"Federal Adjustment Bureau, Inc.",1,0.0,100.0
+FNZ WMS HOLDCO LLC,1,0.0,0.0
+"Ria Envia, LLC",1,0.0,100.0
+"Rowland Avenue Management, Inc. A/KA Columbia Debt Recovery, LLC d/b/a Genesis",1,0.0,100.0
+Royal Pacific Funding Corporation,1,0.0,100.0
+FIRST FOUNDATION INC.,1,100.0,100.0
+"FAIR COLLECTIONS & OUTSOURCING, INC.",1,0.0,100.0
+"Exodus Movement, Inc.",1,0.0,100.0
+Evident Capital LLC,1,0.0,100.0
+Everi Payments Inc.,1,0.0,100.0
+SECURITY FINANCE CORP,1,0.0,100.0
+"Elevate Recoveries, LLC",1,0.0,100.0
+ENTERPRISE FINANCIAL SERVICES CORP,1,0.0,100.0
+ECredable,1,0.0,100.0
+"Mcburberod Financial, Inc. d/b/a SeedFi",1,0.0,100.0
+Driveway Finance Corporation,1,0.0,100.0
+"Doxo, Inc.",1,0.0,100.0
+STATE STREET BANK AND TRUST COMPANY,1,0.0,100.0
+STELLAR BANCORP INC.,1,0.0,100.0
+Financial Assistance Inc,1,0.0,100.0
+"Remitly, Inc.",1,0.0,100.0
+Huntington Debt Holding LLC,1,0.0,100.0
+"Financial Solutions Group, LLC",1,100.0,100.0
+HYUNDAI CAPITAL AMERICA,1,0.0,100.0
+"HILLTOP HOLDINGS, INC",1,0.0,100.0
+"Gurstel Law Firm, P.C.",1,0.0,100.0
+Pendleton & Sutton LLC,1,0.0,0.0
+Penn Credit Corporation,1,0.0,100.0
+"Greenlight Financial Technology, Inc",1,0.0,100.0
+"PlusFour, Inc",1,0.0,100.0
+"Pomelo International, Inc",1,0.0,100.0
+Great American Finance Co,1,0.0,100.0
+Global Credit & Collection Corporation,1,0.0,0.0
+"GVA Holdings, LLC",1,0.0,100.0
+GOLD STAR MORTGAGE FINANCIAL,1,0.0,100.0
+R&M Marketing Associates LLC,1,0.0,100.0
+"GFS II, LLC",1,0.0,100.0
+RC Willey,1,0.0,100.0
+Future Judgement Solutions,1,0.0,0.0
+"Flexible Finance, Inc.",1,0.0,100.0
+First Reliance Holdings LLC,1,0.0,0.0
+First Bancorp North Carolina,1,0.0,100.0
+SOP Pioneer Partners LP,1,0.0,100.0

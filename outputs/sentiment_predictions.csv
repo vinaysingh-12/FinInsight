@@ -1,0 +1,9 @@
+text_id,text,predicted_sentiment,confidence,prob_negative,prob_neutral,prob_positive,needs_review,model_name,scored_at_utc
+1,Quarterly earnings exceeded forecasts and the stock jumped.,neutral,0.6828,0.0695,0.6828,0.2476,False,logistic_regression,2026-10-23 16:26:16
+2,The lender reported a sharp decline in loan originations.,neutral,0.8008,0.0916,0.8008,0.1075,False,logistic_regression,2026-10-23 16:26:16
+3,The bank will hold its annual general meeting next month.,neutral,0.8125,0.1232,0.8125,0.0642,False,logistic_regression,2026-10-23 16:26:16
+4,Profit margins improved thanks to cost-cutting measures.,positive,0.5033,0.3051,0.1915,0.5033,True,logistic_regression,2026-10-23 16:26:16
+5,Credit losses increased and the outlook was lowered.,neutral,0.5939,0.0689,0.5939,0.3372,True,logistic_regression,2026-10-23 16:26:16
+6,The company opened a new branch office in the city centre.,neutral,0.8817,0.0765,0.8817,0.0418,False,logistic_regression,2026-10-23 16:26:16
+7,Management expects stronger demand in the second half.,neutral,0.526,0.2597,0.526,0.2143,True,logistic_regression,2026-10-23 16:26:16
+8,"Delinquencies rose, pressuring the firm's earnings.",neutral,0.598,0.0615,0.598,0.3405,True,logistic_regression,2026-10-23 16:26:16

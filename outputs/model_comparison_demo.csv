@@ -1,0 +1,4 @@
+model,cv_accuracy_mean,cv_accuracy_std,cv_macro_f1_mean,cv_macro_f1_std
+logistic_regression,0.9474,0.0666,0.9449,0.0701
+multinomial_nb,0.9474,0.0666,0.9449,0.0701
+linear_svc_calibrated,0.9474,0.0666,0.9449,0.0701
